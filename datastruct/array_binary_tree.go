@@ -33,7 +33,7 @@ func (a *arrayBinaryTree) parent(i int) int {
 	return (i - 1) / 2
 }
 
-func (a *arrayBinaryTree) levelOrder() []any {
+func (a *arrayBinaryTree) LevelOrder() []any {
 	var res []any
 	for i := 0; i < a.size(); i++ {
 		if a.val(i) != nil {
@@ -60,19 +60,19 @@ func (a *arrayBinaryTree) dfs(i int, order string, res *[]any) {
 	}
 }
 
-func (a *arrayBinaryTree) preOrder() []any {
+func (a *arrayBinaryTree) PreOrder() []any {
 	var res []any
 	a.dfs(0, "pre", &res)
 	return res
 }
 
-func (a *arrayBinaryTree) inOrder() []any {
+func (a *arrayBinaryTree) InOrder() []any {
 	var res []any
 	a.dfs(0, "in", &res)
 	return res
 }
 
-func (a *arrayBinaryTree) postOrder() []any {
+func (a *arrayBinaryTree) PostOrder() []any {
 	var res []any
 	a.dfs(0, "post", &res)
 	return res
