@@ -48,21 +48,21 @@ func (s *linkedListDeque) PopLast() any {
 	return e.Value
 }
 
-func (s *linkedListDeque) peekFirst() any {
+func (s *linkedListDeque) PeekFirst() any {
 	if s.isEmpty() {
 		return nil
 	}
 	return s.data.Front().Value
 }
 
-func (s *linkedListDeque) peekLast() any {
+func (s *linkedListDeque) PeekLast() any {
 	if s.isEmpty() {
 		return nil
 	}
 	return s.data.Back().Value
 }
 
-func (s *linkedListDeque) size() int {
+func (s *linkedListDeque) Size() int {
 	return s.data.Len()
 }
 
@@ -70,7 +70,7 @@ func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-func (s *linkedListDeque) toList() *list.List {
+func (s *linkedListDeque) ToList() *list.List {
 	return s.data
 }
 

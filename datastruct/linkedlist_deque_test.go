@@ -16,11 +16,13 @@ func TestDeque(t *testing.T) {
 	deque.PushFirst(1)
 	deque.PushFirst(2)
 	deque.PushLast("2222")
-	fmt.Println(deque.peekFirst())
-	fmt.Println(deque.peekLast())
+	fmt.Println(deque.PeekFirst())
+	fmt.Println(deque.PeekLast())
 	deque.PopFirst()
 	deque.PushFirst("3333")
 	deque.Print()
 	deque.PopLast()
 	deque.Print()
+
+	fmt.Printf("%d", deque.Size())
 }
