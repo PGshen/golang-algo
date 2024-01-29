@@ -101,7 +101,7 @@ func (b *bSearchTree) remove(num int) {
 		} else {
 			child = cur.Right
 		}
-		if cur == nil {
+		if cur == b.Root {
 			// 是根节点
 			b.Root = child
 		} else {

@@ -19,4 +19,5 @@ func TestBinarySearchTree(t *testing.T) {
 	fmt.Println()
 	root.remove(8)
 	fmt.Printf("%v", root.inOrder()...)
+	fmt.Println(root.search(2))
 }
