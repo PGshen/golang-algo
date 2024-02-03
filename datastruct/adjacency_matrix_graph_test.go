@@ -1,6 +1,7 @@
 package datastruct
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -21,8 +22,13 @@ func TestAdjMatGraph(t *testing.T) {
 	graph.print()
 
 	graph.addVertex(10)
+	graph.addEdge(1, 5)
+	graph.addEdge(0, 1)
 	graph.print()
 
-	graph.removeVertex(2)
+	// graph.removeVertex(2)
 	graph.print()
+
+	fmt.Printf("%v\n", graph.bfs())
+	fmt.Printf("%v\n", graph.dfs())
 }

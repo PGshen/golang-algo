@@ -74,6 +74,88 @@ func (g *adjMatGraph) removeVertex(index int) {
 	}
 }
 
+// 广度优先遍历
+func (g *adjMatGraph) bfs() []int {
+	res := make([]int, 0)
+	startIndex := -1
+	for i := range g.vertices {
+		for _, val := range g.adjMat[i] {
+			if val == 1 { // 找到第一个点
+				startIndex = i
+				break
+			}
+		}
+		if startIndex != -1 {
+			break
+		}
+	}
+	if startIndex == -1 {
+		return res
+	}
+	// 记录是否已经访问过
+	visited := make(map[int]struct{})
+	visited[startIndex] = struct{}{}
+
+	// 使用切片作为队列
+	queue := make([]int, 0)
+	queue = append(queue, startIndex)
+	for len(queue) > 0 {
+		vet := queue[0]
+		queue = queue[1:]
+		res = append(res, g.vertices[vet]) // 节点值
+
+		for index, adjVet := range g.adjMat[vet] {
+			if adjVet == 0 { // 0 说明这个边不存在
+				continue
+			}
+			_, isVisited := visited[index]
+			if !isVisited {
+				queue = append(queue, index)
+				visited[index] = struct{}{}
+			}
+		}
+	}
+	return res
+}
+
+// 深度优先遍历
+func (g *adjMatGraph) dfs() []int {
+	res := make([]int, 0)
+	startIndex := -1
+	for i := range g.vertices {
+		for _, val := range g.adjMat[i] {
+			if val == 1 { // 找到第一个点
+				startIndex = i
+				break
+			}
+		}
+		if startIndex != -1 {
+			break
+		}
+	}
+	if startIndex == -1 {
+		return res
+	}
+	visited := make(map[int]struct{})
+	g.dfsHelper(visited, &res, startIndex)
+	return res
+}
+
+func (g *adjMatGraph) dfsHelper(visited map[int]struct{}, res *[]int, idx int) {
+	*res = append(*res, g.vertices[idx])
+	visited[idx] = struct{}{}
+
+	for index, adjVet := range g.adjMat[idx] {
+		if adjVet == 0 { // 0 表示没有这条边
+			continue
+		}
+		_, isVisited := visited[index]
+		if !isVisited {
+			g.dfsHelper(visited, res, index)
+		}
+	}
+}
+
 func (g *adjMatGraph) print() {
 	fmt.Printf("\t顶点列表 = %v\n", g.vertices)
 	fmt.Printf("\t邻接矩阵 = \n")
