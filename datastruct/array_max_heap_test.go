@@ -23,4 +23,7 @@ func TestArrayMaxHeap(t *testing.T) {
 	fmt.Println(maxHeap.pop())
 	fmt.Println(maxHeap.pop())
 	fmt.Println(maxHeap.pop())
+
+	maxHeap2 := newMaxHeap([]any{1, 2, 5, 3, 7, 4})
+	fmt.Println(maxHeap2.peek())
 }

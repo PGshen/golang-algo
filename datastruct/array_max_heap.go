@@ -12,6 +12,17 @@ func newArrayMaxHeap() *arrayMaxHeap {
 	}
 }
 
+// 根据切片建堆
+func newMaxHeap(nums []any) *arrayMaxHeap {
+	h := &arrayMaxHeap{
+		data: nums,
+	}
+	for i := h.parent(h.size() - 1); i >= 0; i-- {
+		h.siftDown(i)
+	}
+	return h
+}
+
 func (h *arrayMaxHeap) left(i int) int {
 	return 2*i + 1
 }
