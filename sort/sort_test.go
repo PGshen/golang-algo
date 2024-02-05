@@ -19,3 +19,9 @@ func TestBubbleSort(t *testing.T) {
 	bubbleSortWithFlag(nums2)
 	fmt.Println(nums2)
 }
+
+func TestInsertionSort(t *testing.T) {
+	nums := []int{2, 1, 19, 23, 12, 4, 9, 22}
+	insertionSort(nums)
+	fmt.Println(nums)
+}
