@@ -25,3 +25,9 @@ func TestInsertionSort(t *testing.T) {
 	insertionSort(nums)
 	fmt.Println(nums)
 }
+
+func TestQuickSort(t *testing.T) {
+	nums := []int{2, 1, 19, 23, 12, 4, 9, 22}
+	insertionSort(nums)
+	fmt.Println(nums)
+}
