@@ -28,6 +28,12 @@ func TestInsertionSort(t *testing.T) {
 
 func TestQuickSort(t *testing.T) {
 	nums := []int{2, 1, 19, 23, 12, 4, 9, 22}
-	insertionSort(nums)
+	quickSort(nums, 0, len(nums)-1)
+	fmt.Println(nums)
+}
+
+func TestMergeSort(t *testing.T) {
+	nums := []int{2, 1, 19, 23, 12, 4, 9, 22}
+	mergeSort(nums, 0, len(nums)-1)
 	fmt.Println(nums)
 }
