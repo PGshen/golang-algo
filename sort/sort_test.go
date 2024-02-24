@@ -37,3 +37,9 @@ func TestMergeSort(t *testing.T) {
 	mergeSort(nums, 0, len(nums)-1)
 	fmt.Println(nums)
 }
+
+func TestHeapSort(t *testing.T) {
+	nums := []int{2, 1, 19, 23, 12, 4, 9, 22}
+	heapSort(nums)
+	fmt.Println(nums)
+}
