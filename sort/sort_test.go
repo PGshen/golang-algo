@@ -50,6 +50,26 @@ func TestBucketSort(t *testing.T) {
 	fmt.Println(sortedNums)
 }
 
+func TestCountingSort(t *testing.T) {
+	nums := []int{2, 1, 19, 23, 12, 4, 9, 22, 23, 18, 2, 3, 33, 50, 199, 22, 7}
+	countingSort(nums)
+	fmt.Println(nums)
+}
+
+func TestCountingSort2(t *testing.T) {
+	people := []People{
+		{age: 10, name: "a"},
+		{age: 6, name: "b"},
+		{age: 16, name: "c"},
+		{age: 26, name: "d"},
+		{age: 16, name: "e"},
+		{age: 6, name: "f"},
+		{age: 99, name: "g"},
+	}
+	countingSort2(people)
+	fmt.Println(people)
+}
+
 func Test1(t *testing.T) {
 	fmt.Printf("%v", 3/2)
 }
