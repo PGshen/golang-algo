@@ -43,3 +43,13 @@ func TestHeapSort(t *testing.T) {
 	heapSort(nums)
 	fmt.Println(nums)
 }
+
+func TestBucketSort(t *testing.T) {
+	nums := []int{2, 1, 19, 23, 12, 4, 9, 22, 23, 18, 2, 3, 33, 50, 199, 22, 7}
+	sortedNums := bucketSort(nums)
+	fmt.Println(sortedNums)
+}
+
+func Test1(t *testing.T) {
+	fmt.Printf("%v", 3/2)
+}
