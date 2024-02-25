@@ -70,6 +70,12 @@ func TestCountingSort2(t *testing.T) {
 	fmt.Println(people)
 }
 
+func TestRadixSort(t *testing.T) {
+	nums := []int{2, 1, 19, 23, 12, 4, 9, 22, 23, 18, 2, 3, 33, 50, 199, 22, 7}
+	radixSort(nums)
+	fmt.Println(nums)
+}
+
 func Test1(t *testing.T) {
 	fmt.Printf("%v", 3/2)
 }
