@@ -1,31 +1,60 @@
 package datastruct
 
-type intHeap []any
+type MaxHeap []int
+type MinHeap []int
 
 // 实现heap.Interface的方法
-func (h *intHeap) Push(x any) {
+func (h *MaxHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-func (h *intHeap) Pop() any {
+func (h *MaxHeap) Pop() any {
 	last := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return last
 }
 
 // 实现sort.Interface的方法
-func (h *intHeap) Len() int {
+func (h *MaxHeap) Len() int {
 	return len(*h)
 }
 
-func (h *intHeap) Less(i, j int) bool {
-	return (*h)[i].(int) > (*h)[j].(int)
+func (h *MaxHeap) Less(i, j int) bool {
+	return (*h)[i] > (*h)[j]
 }
 
-func (h *intHeap) Swap(i, j int) {
+func (h *MaxHeap) Swap(i, j int) {
 	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
 }
 
-func (h *intHeap) Top() any {
+func (h *MaxHeap) Top() any {
+	return (*h)[0]
+}
+
+// 实现heap.Interface的方法
+func (h *MinHeap) Push(x any) {
+	*h = append(*h, x.(int))
+}
+
+func (h *MinHeap) Pop() any {
+	last := (*h)[len(*h)-1]
+	*h = (*h)[:len(*h)-1]
+	return last
+}
+
+// 实现sort.Interface的方法
+func (h *MinHeap) Len() int {
+	return len(*h)
+}
+
+func (h *MinHeap) Less(i, j int) bool {
+	return (*h)[i] < (*h)[j]
+}
+
+func (h *MinHeap) Swap(i, j int) {
+	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
+}
+
+func (h *MinHeap) Top() any {
 	return (*h)[0]
 }

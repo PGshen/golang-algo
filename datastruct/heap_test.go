@@ -7,7 +7,7 @@ import (
 )
 
 func TestHeap(t *testing.T) {
-	maxHeap := &intHeap{}
+	maxHeap := &MaxHeap{}
 	heap.Init(maxHeap)
 
 	heap.Push(maxHeap, 1)
