@@ -38,6 +38,31 @@ func (b *BTreeNode) levelOrder() []any {
 	return ret
 }
 
+func levelOrder(root *BTreeNode) [][]int {
+	res := make([][]int, 0)
+	queue := list.New()
+	queue.PushBack(root)
+	for queue.Len() > 0 {
+		levelNodes := []BTreeNode{}
+		for queue.Len() > 0 {
+			node := queue.Remove(queue.Front()).(*BTreeNode)
+			levelNodes = append(levelNodes, *node)
+		}
+		levelRes := []int{}
+		for _, node := range levelNodes {
+			levelRes = append(levelRes, node.Value.(int))
+			if node.Left != nil {
+				queue.PushBack(node.Left)
+			}
+			if node.Right != nil {
+				queue.PushBack(node.Right)
+			}
+		}
+		res = append(res, levelRes)
+	}
+	return res
+}
+
 // 前序遍历
 func (b *BTreeNode) preOrder(list []any) []any {
 	if b == nil {
